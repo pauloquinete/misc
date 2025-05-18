@@ -1,0 +1,14 @@
+# APT update
+apt update && apt install -y wget tar
+
+# Download Node Exporter binary
+wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz
+
+# Extract it
+tar -xvzf node_exporter-1.9.1.linux-amd64.tar.gz
+
+# Move it to /usr/local/bin
+mv node_exporter-1.9.1.linux-amd64/node_exporter /usr/local/bin/
+
+# Start the exporter
+nohup /usr/local/bin/node_exporter &
